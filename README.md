@@ -12,7 +12,7 @@ Veille quotidienne des **nouveaux articles Wikipédia FR et EN** liés aux porta
 │           API fr/en.wikipedia.org + www.wikidata.org (OAuth facultatif)│
 │           └─► branche `data` (1 commit écrasé à chaque passage)       │
 │ build     Vite + React + TypeScript · web/  (+ branche data copiée)   │
-│ deploy    actions/deploy-pages ─► https://<owner>.github.io/Wikiveille-afrique/
+│ deploy    actions/deploy-pages ─► https://krazymapper.github.io/Wikiveille-afrique/
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -40,11 +40,10 @@ Les types TypeScript correspondants sont dans `web/src/lib/types.ts`.
 
 ## Mise en route
 
-1. Créer le dépôt **public** `Wikiveille-afrique` et y pousser ce dossier sur `main`.
+1. Pousser ce dossier sur `main` de https://github.com/krazymapper/Wikiveille-afrique (dépôt public).
 2. **Settings › Pages › Build and deployment › Source : GitHub Actions.**
 3. **Settings › Secrets and variables › Actions › New repository secret** : `WIKIMEDIA_TOKEN` = jeton OAuth 2 « basic » (meta.wikimedia.org › Special:OAuthConsumerRegistration). Facultatif en théorie, indispensable en pratique : sans jeton, les API répondent beaucoup plus lentement (un passage peut dépasser 20 min).
 4. **Actions › Veille › Run workflow** une première fois : la branche `data` est créée (l'historique est amorcé avec `seed/historique.json`) et le site est publié.
-5. Remplacer `OWNER` dans `web/src/App.tsx` (lien « Code source »).
 
 ## Développement local
 

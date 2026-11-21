@@ -16,7 +16,7 @@ const NAV: { page: Page; label: string }[] = [
   { page: "method", label: "Méthode" },
 ];
 
-const REPO_URL = "https://github.com/OWNER/Wikiveille-afrique"; // à remplacer
+const REPO_URL = "https://github.com/krazymapper/Wikiveille-afrique";
 
 export function App() {
   const { page } = useRoute();
