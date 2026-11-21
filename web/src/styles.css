@@ -4,17 +4,18 @@
   --surface-2: #f7f8fa;
   --border: #d5d9e0;
   --border-soft: #edeff3;
-  --text: #1d2330;
+  --text: #13303f;
   --text-2: #3b4352;
   --muted: #5b6472;
-  --accent: #1f5fad;
-  --accent-hover: #174a87;
-  --accent-soft: #e8eef7;
+  --accent: #006699;
+  --accent-hover: #004d73;
+  --accent-soft: #e3f0f6;
+  --brand-afr: #006699;
   --ok: #1e6b3a;
   --ok-soft: #eef8f1;
   --warn: #8a4b0f;
   --warn-soft: #fdf1e3;
-  --series-1: #1f5fad;
+  --series-1: #006699;
   --series-2: #e08a2e;
   --series-3: #8a93a3;
   --radius: 8px;
@@ -31,14 +32,15 @@
     --text: #e8ebf0;
     --text-2: #c7ccd5;
     --muted: #9aa3b2;
-    --accent: #7fb0ec;
-    --accent-hover: #a6c8f2;
-    --accent-soft: #1f3048;
+    --accent: #9fd3ec;
+    --accent-hover: #c4e5f4;
+    --accent-soft: #163848;
+    --brand-afr: #9fd3ec;
     --ok: #7fd39d;
     --ok-soft: #173326;
     --warn: #f0b878;
     --warn-soft: #3a2a17;
-    --series-1: #5f9ae0;
+    --series-1: #4fa8d1;
     --series-2: #e8a25a;
     --series-3: #6d7685;
     color-scheme: dark;
@@ -53,14 +55,15 @@
   --text: #e8ebf0;
   --text-2: #c7ccd5;
   --muted: #9aa3b2;
-  --accent: #7fb0ec;
-  --accent-hover: #a6c8f2;
-  --accent-soft: #1f3048;
+  --accent: #9fd3ec;
+  --accent-hover: #c4e5f4;
+  --accent-soft: #163848;
+    --brand-afr: #9fd3ec;
   --ok: #7fd39d;
   --ok-soft: #173326;
   --warn: #f0b878;
   --warn-soft: #3a2a17;
-  --series-1: #5f9ae0;
+  --series-1: #4fa8d1;
   --series-2: #e8a25a;
   --series-3: #6d7685;
   color-scheme: dark;
@@ -190,7 +193,7 @@ button.barlist-row:hover .barlist-fill { background: var(--accent-hover); }
 .logo-mark { flex: none; display: block; }
 .logo-word { display: flex; flex-direction: column; line-height: 1.05; }
 .logo-wiki { font-weight: 800; font-size: 1.12rem; letter-spacing: -.01em; color: var(--text); }
-.logo-afr { font-weight: 600; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.logo-afr { font-weight: 600; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--brand-afr); }
 .credit { flex-basis: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding-top: 10px; border-top: 1px solid var(--border-soft); color: var(--text-2); }
 .credit strong { color: var(--text); }
 
@@ -207,3 +210,13 @@ button.barlist-row:hover .barlist-fill { background: var(--accent-hover); }
 .faq details > div p { margin: 0; }
 .about-hero { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
 .about-hero p { margin: 0; color: var(--text-2); max-width: 640px; }
+
+/* Variantes de logo selon le thème */
+.only-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .only-dark { display: inline; }
+  :root:not([data-theme="light"]) .only-light { display: none; }
+}
+:root[data-theme="dark"] .only-dark { display: inline; }
+:root[data-theme="dark"] .only-light { display: none; }
+.about-hero img { max-width: 100%; height: auto; }

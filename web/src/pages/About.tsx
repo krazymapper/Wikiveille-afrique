@@ -1,5 +1,5 @@
 import { Card } from "../components/ui";
-import { LogoMark } from "../components/Logo";
+import { LogoHorizontal } from "../components/Logo";
 import { href } from "../lib/route";
 
 export function AboutPage({ repoUrl }: { repoUrl: string }) {
@@ -11,7 +11,7 @@ export function AboutPage({ repoUrl }: { repoUrl: string }) {
 
       <Card>
         <div className="about-hero">
-          <LogoMark size={72} />
+          <LogoHorizontal width={300} />
           <p>
             <strong>Wikiveille Afrique</strong> suit chaque jour ce qui s'écrit sur l'Afrique dans Wikipédia et Wikidata :
             les nouveaux articles en français et en anglais liés aux pays africains, et les nouveaux éléments Wikidata situés sur le continent.
@@ -49,7 +49,7 @@ export function AboutPage({ repoUrl }: { repoUrl: string }) {
       <Card title="Crédits">
         <p>Proposé avec amour par <strong>Saliousoft</strong>.</p>
         <p className="muted small">
-          Données issues de Wikipédia et Wikidata, projets de la Wikimedia Foundation. Wikiveille Afrique est un projet indépendant, non affilié à la Wikimedia Foundation.
+          Données issues de Wikipédia et Wikidata, projets de la Wikimedia Foundation. Le logo est construit sur le modèle de logo Wikimedia et utilisé avec autorisation.
         </p>
       </Card>
     </div>
