@@ -20,8 +20,9 @@
   --radius: 8px;
   color-scheme: light;
 }
+/* Thème sombre : suit le système, sauf si l'utilisateur a choisi (attribut data-theme sur <html>). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #12151b;
     --surface: #1a1f27;
     --surface-2: #20262f;
@@ -43,6 +44,27 @@
     color-scheme: dark;
   }
 }
+:root[data-theme="dark"] {
+  --bg: #12151b;
+  --surface: #1a1f27;
+  --surface-2: #20262f;
+  --border: #343c48;
+  --border-soft: #272e38;
+  --text: #e8ebf0;
+  --text-2: #c7ccd5;
+  --muted: #9aa3b2;
+  --accent: #7fb0ec;
+  --accent-hover: #a6c8f2;
+  --accent-soft: #1f3048;
+  --ok: #7fd39d;
+  --ok-soft: #173326;
+  --warn: #f0b878;
+  --warn-soft: #3a2a17;
+  --series-1: #5f9ae0;
+  --series-2: #e8a25a;
+  --series-3: #6d7685;
+  color-scheme: dark;
+}
 
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
@@ -59,13 +81,12 @@ code { font-size: .9em; background: var(--surface-2); padding: 1px 4px; border-r
 @media (min-width: 720px) { .container { padding-inline: 24px; } }
 
 .topbar { background: var(--surface); border-bottom: 1px solid var(--border); }
-.topbar-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; padding-block: 12px; }
+.topbar-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-block: 12px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-.brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--accent); color: var(--surface); display: grid; place-items: center; font-size: 16px; }
-.nav { display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto; }
-.nav a { padding: 10px 12px; border-radius: 6px; color: var(--text-2); text-decoration: none; font-size: .93rem; }
+.nav { display: flex; flex-wrap: wrap; gap: 2px; flex: 1 1 auto; }
+.nav a { padding: 10px 9px; border-radius: 6px; color: var(--text-2); text-decoration: none; font-size: .9rem; }
 .nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
-.topbar-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.topbar-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 
 .main { padding-block: 24px 40px; }
 .page-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
@@ -164,3 +185,25 @@ button.barlist-row:hover .barlist-fill { background: var(--accent-hover); }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-block: 14px; font-size: .8rem; color: var(--muted); }
 
 .clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-width: 340px; }
+
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo-mark { flex: none; display: block; }
+.logo-word { display: flex; flex-direction: column; line-height: 1.05; }
+.logo-wiki { font-weight: 800; font-size: 1.12rem; letter-spacing: -.01em; color: var(--text); }
+.logo-afr { font-weight: 600; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.credit { flex-basis: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding-top: 10px; border-top: 1px solid var(--border-soft); color: var(--text-2); }
+.credit strong { color: var(--text); }
+
+.theme-toggle { width: 42px; min-height: 40px; justify-content: center; padding: 0; }
+.page-title { margin-bottom: 20px; }
+.page-title p { margin-top: 6px; }
+.faq { display: flex; flex-direction: column; gap: 10px; }
+.faq details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.faq summary { cursor: pointer; padding: 16px 18px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--accent); font-weight: 700; }
+.faq details[open] summary::after { content: "−"; }
+.faq details > div { padding: 0 18px 16px; color: var(--text-2); display: flex; flex-direction: column; gap: 8px; }
+.faq details > div p { margin: 0; }
+.about-hero { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+.about-hero p { margin: 0; color: var(--text-2); max-width: 640px; }

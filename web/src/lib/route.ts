@@ -3,8 +3,10 @@ import { useCallback, useEffect, useState } from "react";
 // Routage par hash : GitHub Pages ne sait pas réécrire les URL d'une SPA.
 // Forme : #/wikipedia?wiki=FR&q=congo  → page + filtres partageables.
 
-export type Page = "overview" | "wikipedia" | "wikidata" | "history" | "method";
-const PAGES: Page[] = ["overview", "wikipedia", "wikidata", "history", "method"];
+export type Page = "overview" | "wikipedia" | "wikidata" | "history" | "method" | "faq" | "about";
+const PAGES: Page[] = ["overview", "wikipedia", "wikidata", "history", "method", "faq", "about"];
+/** Pages éditoriales : elles s'affichent même sans données. */
+export const STATIC_PAGES: Page[] = ["method", "faq", "about"];
 
 function parse(): { page: Page; params: URLSearchParams } {
   const raw = window.location.hash.replace(/^#\/?/, "");
